@@ -4,46 +4,140 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>My Meeting with Three Giants</title>
+  <title>Meeting the Three Giants</title>
   <link rel="stylesheet" href="css/styles.css">
+  <style>
+    /* Basic modern styling */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to bottom, #1a1a1a, #333);
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    header {
+      text-align: center;
+      padding: 4rem 1rem;
+      background: url('img/mountains-bg.jpg') center/cover no-repeat;
+      color: #fff;
+      text-shadow: 1px 1px 10px rgba(0,0,0,0.8);
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      opacity: 0.9;
+    }
+
+    main {
+      max-width: 900px;
+      margin: 3rem auto;
+      padding: 0 1rem;
+    }
+
+    section {
+      margin-bottom: 4rem;
+      text-align: center;
+      border-radius: 12px;
+      background: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    }
+
+    section img {
+      width: 100%;
+      max-width: 600px;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+    }
+
+    h2 {
+      color: #f7d674;
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    p span {
+      color: #ffd166;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #111;
+      color: #aaa;
+      font-size: 0.9rem;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 
 <body>
   <header>
-    <h1>My Meeting with Three Giants</h1>
-    <p>One loud night , I set out on a walk — and met three giants who changed the way I see the world.</p>
+    <h1>Meeting the Three Giants</h1>
+    <p>A night’s walk turned into a lesson from beings larger than life.</p>
   </header>
 
-  <section>
-    <h2>The First Giant</h2>
+  <main>
+    <section class="fade-in">
+      <h2>The First Giant</h2>
+      <img src="img/giant1.jpg" alt="The first giant standing by a mountain">
+      <p>He spoke slowly, like <em>stone grinding on stone</em>, and asked what I was building. I said <span>“websites.”</span> He laughed — a laugh that shook the valley.</p>
+    </section>
 
-    <img src="img/giant1.jpg" alt="The first giant standing by a mountain" />
-    <p>He spoke slowly, like stone grinding on stone, and asked me what I was building. I said <span>“websites.”</span>
-      He laughed —
-      the kind of laugh that shakes trees.</p>
-  </section>
+    <section class="fade-in">
+      <h2>The Second Giant</h2>
+      <img src="img/giant2.jpg" alt="The second giant watching the clouds">
+      <p>He said nothing at all. His silence was a mirror. In it, I heard the noise of my own thoughts.</p>
+    </section>
 
-  <section>
-    <h2>The Second Giant</h2>
-
-    <img src="img/giant2.jpg" alt="The second giant watching the clouds" />
-    <p>This one didn’t speak at all. He just looked at me, and in that silence I realized how loud my thoughts were.</p>
-  </section>
-
-  <section>
-    <h2>The Third Giant</h2>
-
-    <img src="img/giant3.jpg" alt="The third giant walking away into the mist" />
-    <p>He gave me no advice. Only a nod, as if to say: keep going. The path is yours now.</p>
-  </section>
+    <section class="fade-in">
+      <h2>The Third Giant</h2>
+      <img src="img/giant3.jpg" alt="The third giant walking into the mist">
+      <p>He only nodded. The world around him faded into mist. It felt like permission — <em>the path is yours now.</em></p>
+    </section>
+  </main>
 
   <footer>
-    <p>© 2025 – A simple story told with HTML, CSS, and a little curiosity.</p>
+    <p>© 2025 – Story built with HTML, CSS, and curiosity.</p>
   </footer>
 
-  <script src="js/index.js">
-
+  <script>
+    // Scroll fade-in effect
+    const fadeEls = document.querySelectorAll('.fade-in');
+    const onScroll = () => {
+      fadeEls.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) el.classList.add('visible');
+      });
+    };
+    window.addEventListener('scroll', onScroll);
+    onScroll();
   </script>
 </body>
-
 </html>
